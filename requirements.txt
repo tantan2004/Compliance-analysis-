@@ -11,4 +11,4 @@ python-multipart
 pymupdf
 sentence-transformers
 protobuf==3.20.3
-
+faiss-cpu
