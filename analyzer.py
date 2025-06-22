@@ -1,5 +1,5 @@
 from langchain.prompts import PromptTemplate
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceBgeEmbeddings
 from dotenv import load_dotenv
 import os
@@ -47,7 +47,7 @@ class Analysis:
         documents = loader.load()
         self.raw_text = "\n".join(doc.page_content for doc in documents)
         chunks=self.text_splitter.split_documents(documents)
-        self.vector_store=Chroma.from_documents(
+        self.vector_store=FAISS.from_documents(
             documents=chunks,
             embedding=self.embeddings,
             persist_directory="./findocs"
