@@ -5,18 +5,16 @@ import tempfile
 from analyzer import Analysis
 import html
 
-# Page configuration
 st.set_page_config(
     page_title="Compliance Analysis Tool",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for neutral styling
 st.markdown("""
 <style>
     .stApp {
-        background-color: #ffffff;  /* white background */
+        background-color: #ffffff;
     }
     .main-header {
         font-size: 2.2rem;
@@ -48,7 +46,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Session state initialization
 if 'analysis' not in st.session_state:
     st.session_state.analysis = None
 if 'results' not in st.session_state:
@@ -56,20 +53,31 @@ if 'results' not in st.session_state:
 if 'rules_path' not in st.session_state:
     st.session_state.rules_path = None
 
-# Page title
 st.markdown("<div class='main-header'>Compliance Analysis Tool</div>", unsafe_allow_html=True)
 
-# Upload rules file
-st.subheader("Upload Rules File")
-rules_file = st.file_uploader("Choose a rules file (JSON, TXT, YAML)", type=["json", "txt", "yaml", "yml"])
-if rules_file:
-    with tempfile.NamedTemporaryFile(delete=False, suffix=f".{rules_file.name.split('.')[-1]}") as tmp_rule:
-        tmp_rule.write(rules_file.read())
-        st.session_state.rules_path = tmp_rule.name
+st.subheader("Rules Configuration")
+use_custom_rules = st.checkbox("Use custom rules file (optional)", value=False)
 
-# Upload document
-st.subheader("Upload Document")
+if use_custom_rules:
+    rules_file = st.file_uploader("Upload custom rules file (JSON, TXT, YAML)", type=["json", "txt", "yaml", "yml"])
+    if rules_file:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=f".{rules_file.name.split('.')[-1]}") as tmp_rule:
+            tmp_rule.write(rules_file.read())
+            st.session_state.rules_path = tmp_rule.name
+        st.info("Using uploaded rules file.")
+    else:
+        st.warning("Please upload a custom rules file.")
+else:
+    default_rules_path = os.path.join(os.path.dirname(__file__), "rules.json")
+    if os.path.exists(default_rules_path):
+        st.session_state.rules_path = default_rules_path
+        st.info("Using default rules.json from the repository.")
+    else:
+        st.error("Default rules.json file not found.")
+
+st.subheader("Upload Policy Document")
 uploaded_file = st.file_uploader("Choose a document (TXT, PDF, DOCX)", type=['txt', 'pdf', 'docx'])
+
 custom_query = st.text_area("Custom Query", "Summarize all compliance risks in the document.")
 
 if uploaded_file and st.session_state.rules_path:
@@ -87,7 +95,6 @@ if uploaded_file and st.session_state.rules_path:
         except Exception as e:
             st.error(f"Error during analysis: {e}")
 
-# Display results
 if st.session_state.results:
     res = st.session_state.results
     risk = res['risk_level'].lower()
@@ -116,7 +123,6 @@ if st.session_state.results:
         if hasattr(judgment, "content"):
             judgment = judgment.content
 
-        # Escape and format LLM assessment properly
         judgment_html = html.escape(judgment).replace("\n", "<br>")
 
         with st.expander(f"Violation {i+1}: Rule - {rule}"):
