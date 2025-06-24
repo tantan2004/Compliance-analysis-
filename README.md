@@ -37,7 +37,9 @@ Built with a **LangChain RAG pipeline**, **Groq models**, **FAISS vector store**
 - **Vector Store:** FAISS
 - **Document Retrieval:** RAG (Retrieval-Augmented Generation)
 
- ##Prerequisites
+---  
+
+ ## Prerequisites
 
  -Python 3.8 or higher
 -Groq API key
