@@ -37,24 +37,66 @@ Built with a **LangChain RAG pipeline**, **Groq models**, **FAISS vector store**
 - **Vector Store:** FAISS
 - **Document Retrieval:** RAG (Retrieval-Augmented Generation)
 
----
+Prerequisites
 
-## Installation & Setup
+Python 3.8 or higher
+Groq API key
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tantan2004/Compliance-analyzer.git
-   cd Compliance-analyzer
-2.**Install dependencies**
-```bash
- pip install -r requirements.txt
+Steps
 
-3.** Add your API key**
-   **Create a .env file in the root directory**:
-```bash
-GROQ_API_KEY=your_groq_api_key
-You may also need other environment variables depending on your embedding model or deployment.
+Clone the repository
+bash
+git clone https://github.com/tantan2004/Compliance-analyzer.git
+cd Compliance-analyzer
 
-4.**Run the app**
-```bash
+Install dependencies
+bash
+pip install -r requirements.txt
+
+Configure environment variables
+Create a .env file in the root directory:
+env
+GROQ_API_KEY=your_groq_api_key_here
+
+ℹ️ Note: You may need additional environment variables depending on your embedding model or deployment configuration.
+
+
+Run the application
+bash
 streamlit run app.py
+
+
+ Evaluation
+To test model performance on predefined policy documents and expected rule violations:
+bashpython evaluation.py
+The evaluation script provides comprehensive metrics:
+
+✅ Precision and recall of rule-based matching
+📊 Risk level accuracy compared to ground truth
+🧠 LLM summary evaluation 
+
+📌 Usage Guide
+Getting Started
+
+Launch the application:
+bashstreamlit run app.py
+
+Upload your policy document:
+
+Supported formats: .txt, .pdf, .docx
+Maximum file size: 200MB
+
+
+Configure rules (optional):
+
+Use the default rules.json file, or
+Upload your custom rules configuration
+
+
+Review results:
+
+View detected rule violations
+Check AI-generated risk levels
+Read compliance issue summaries
+
+
