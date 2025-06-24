@@ -1,1 +1,10 @@
-{"data_breach": "data breach|security incident|unauthorized access", "consent_violation": "without consent|no permission|unauthorized use", "encryption_missing": "unencrypted|plain text|no encryption", "gdpr_violation": "gdpr|general data protection|personal data", "retention_policy": "data retention|delete data|storage period"}
+{
+  "data_breach": "\\b(data breach|security incident|unauthorized access|unauthorised access|information leak|compromised data)\\b",
+  "consent_violation": "\\b(without explicit consent|no user consent|consent not obtained|user did not consent|lack of user permission)\\b",
+  "encryption_missing": "\\b(unencrypted|no encryption|not encrypted|data in plain text|without encryption)\\b",
+  "gdpr_violation": "\\b(non-compliant with gdpr|violates gdpr|gdpr not followed|gdpr ignored)\\b",
+  "retention_policy": "\\b(no retention policy|data stored indefinitely|no deletion policy|retained forever|unclear retention period)\\b",
+  "data_sharing": "\\b(shared with third[- ]parties|data sold to advertisers|external data transfer|data disclosed externally)\\b",
+  "user_rights_violation": "\\b(no right to delete data|cannot access personal data|no user control over data|cannot update data)\\b",
+  "privacy_policy_missing": "\\b(no privacy policy|missing privacy terms|privacy statement not available|no link to privacy info)\\b"
+}
