@@ -46,12 +46,15 @@ Built with a **LangChain RAG pipeline**, **Groq models**, **FAISS vector store**
    git clone https://github.com/tantan2004/Compliance-analyzer.git
    cd Compliance-analyzer
 2.**Install dependencies**
-pip install -r requirements.txt
-Add your API key
+```bash
+ pip install -r requirements.txt
 
-3.**Create a .env file in the root directory**:
+3.** Add your API key**
+   **Create a .env file in the root directory**:
+```bash
 GROQ_API_KEY=your_groq_api_key
 You may also need other environment variables depending on your embedding model or deployment.
 
 4.**Run the app**
+```bash
 streamlit run app.py
