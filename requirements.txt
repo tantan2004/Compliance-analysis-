@@ -1,12 +1,12 @@
 streamlit
 
-# LangChain ecosystem
+# LangChain ecosystem (compatibility-verified)
 langchain==0.2.10
-langchain-core==0.2.22
+langchain-core==0.2.23
 langchain-community==0.2.10
 langchain-groq==0.1.3
 
-# LLM embeddings & vector DB
+# Embeddings & vector DB
 sentence-transformers
 faiss-cpu
 
@@ -14,12 +14,12 @@ faiss-cpu
 pymupdf
 docx2txt
 
-# Environment & utilities
+# Environment & utils
 python-dotenv
 chromadb
 protobuf==3.20.3
 
-# API support
+# API server deps (optional)
 fastapi
 uvicorn
 python-multipart
