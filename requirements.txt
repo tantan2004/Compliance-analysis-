@@ -1,10 +1,11 @@
 streamlit
 
-# LangChain ecosystem (compatibility-verified)
+# LangChain ecosystem (compatible versions)
 langchain==0.2.10
 langchain-core==0.2.23
 langchain-community==0.2.10
-langchain-groq==0.1.3
+langchain-groq==0.2.2
+groq
 
 # Embeddings & vector DB
 sentence-transformers
@@ -19,7 +20,7 @@ python-dotenv
 chromadb
 protobuf==3.20.3
 
-# API server deps (optional)
+# API server
 fastapi
 uvicorn
 python-multipart
