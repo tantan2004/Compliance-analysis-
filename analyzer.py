@@ -5,8 +5,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 from langchain_groq import ChatGroq
-from langchain.memory import ConversationSummaryBufferMemory
-ConversationSummaryBufferMemory.model_rebuild()
+from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.document_loaders import TextLoader, PyMuPDFLoader, Docx2txtLoader
@@ -28,7 +27,7 @@ class Analysis:
             chunk_size=1000,
             chunk_overlap=200
         )
-        self.memory = ConversationSummaryBufferMemory(
+        self.memory = ConversationBufferMemory(
             llm=self.llm,
             memory_key="chat_history",
             return_messages=True
@@ -170,6 +169,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
