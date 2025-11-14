@@ -2,17 +2,20 @@ from langchain_core.prompts import PromptTemplate
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from dotenv import load_dotenv
-
 import os
 load_dotenv()
-
+import re
 from langchain_groq import ChatGroq
-from langchain.memory import ConversationSummaryBufferMemory
+from langchain_community.memory import ConversationSummaryBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.agents import initialize_agent, Tool, AgentType
-from langchain.document_loaders import TextLoader, PyMuPDFLoader, Docx2txtLoader
+# Loaders moved to langchain_community
+from langchain_community.document_loaders import (
+    TextLoader,
+    PyMuPDFLoader,
+    Docx2txtLoader
+)
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import re
 import json
 
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
@@ -170,5 +173,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
