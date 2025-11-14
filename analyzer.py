@@ -6,6 +6,7 @@ import os
 load_dotenv()
 from langchain_groq import ChatGroq
 from langchain.memory import ConversationSummaryBufferMemory
+ConversationSummaryBufferMemory.model_rebuild()
 from langchain.chains import ConversationalRetrievalChain
 from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.document_loaders import TextLoader, PyMuPDFLoader, Docx2txtLoader
@@ -169,6 +170,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
