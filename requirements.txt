@@ -1,7 +1,7 @@
 streamlit
-langchain
-langchain-community
-langchain-core
+langchain==0.2.10
+langchain-core==0.2.5
+langchain-community==0.2.5
 langchain-groq
 python-dotenv
 chromadb
@@ -12,3 +12,5 @@ pymupdf
 sentence-transformers
 protobuf==3.20.3
 faiss-cpu
+
+
