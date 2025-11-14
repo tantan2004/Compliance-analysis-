@@ -18,7 +18,7 @@ os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 
 class Analysis:
     def __init__(self, rule_file="rules.json"):
-        self.llm = ChatGroq(model="llama3-70b-8192", api_key=os.getenv("GROQ_API_KEY"))
+        self.llm = ChatGroq(model="llama-3.1-70b-versatile", api_key=os.getenv("GROQ_API_KEY"))
         self.embeddings = HuggingFaceBgeEmbeddings(
             model_name="all-MiniLM-L6-v2",
             model_kwargs={"device": "cpu"}
@@ -169,6 +169,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
