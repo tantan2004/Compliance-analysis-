@@ -1,4 +1,4 @@
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceBgeEmbeddings
 from dotenv import load_dotenv
@@ -169,3 +169,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
