@@ -1,8 +1,8 @@
 streamlit
 
-# LangChain ecosystem (full compatibility)
+# LangChain ecosystem (version-verified)
 langchain==0.3.7
-langchain-core==0.3.27
+langchain-core==0.3.29
 langchain-community==0.3.7
 
 # Groq LLM support
@@ -13,16 +13,16 @@ groq
 faiss-cpu
 sentence-transformers
 
-# Documents
+# Document loaders
 pymupdf
 docx2txt
 
-# Utils
+# Env vars
 python-dotenv
+
+# Extra deps
 chromadb
 protobuf==3.20.3
-
-# Optional API
 fastapi
 uvicorn
 python-multipart
